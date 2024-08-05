@@ -1,15 +1,32 @@
 
-
 const codonProteinArray = [
-    { codon: ['AUG'], protein: 'Methionine' },
     { codon: ['UUU', 'UUC'], protein: 'Phenylalanine' },
     { codon: ['UUA', 'UUG'], protein: 'Leucine' },
     { codon: ['UCU', 'UCC', 'UCA', 'UCG'], protein: 'Serine' },
     { codon: ['UAU', 'UAC'], protein: 'Tyrosine' },
     { codon: ['UGU', 'UGC'], protein: 'Cysteine' },
     { codon: ['UGG'], protein: 'Tryptophan' },
+    { codon: ['UAA', 'UAG', 'UGA'], protein: 'STOP' },
+    { codon: ['AAA', 'AAG'], protein: 'Lysine' },
+    { codon: ['AAC', 'AAU'], protein: 'Asparagine' },
+    { codon: ['ACA', 'ACC', 'ACG', 'ACU'], protein: 'Threonine' },
+    { codon: ['AGA', 'AGG'], protein: 'Arginine' },
+    { codon: ['AGC', 'AGU'], protein: 'Serine' },
+    { codon: ['AUA', 'AUC', 'AUU'], protein: 'Isoleucine' },
+    { codon: ['AUG'], protein: 'Methionine' }, // START
+    { codon: ['CAA', 'CAG'], protein: 'Glutamine' },
+    { codon: ['CAC', 'CAU'], protein: 'Histidine' },
+    { codon: ['CCA', 'CCC', 'CCG', 'CCU'], protein: 'Proline' },
+    { codon: ['CGA', 'CGC', 'CGG', 'CGU'], protein: 'Arginine' },
+    { codon: ['CUA', 'CUC', 'CUG', 'CUU'], protein: 'Leucine' },
+    { codon: ['GAA', 'GAG'], protein: 'Glutamic Acid' },
+    { codon: ['GAC', 'GAU'], protein: 'Aspartic Acid' },
+    { codon: ['GCA', 'GCC', 'GCG', 'GCU'], protein: 'Alanine' },
+    { codon: ['GGA', 'GGC', 'GGG', 'GGU'], protein: 'Glycine' },
+    { codon: ['GUA', 'GUC', 'GUG', 'GUU'], protein: 'Valine' },
     { codon: ['UAA', 'UAG', 'UGA'], protein: 'STOP' }
 ];
+
 
 // the template into packs of three
 const splitIntoCodons = (seq) => {
@@ -52,8 +69,8 @@ export const translation = (seq) => {
         return 'there is template to translate'
     }
     const proteins = translateCodonsToProteins(codons);
-    return proteins.join(',');
+    return proteins.join(', ');
 };
 
-console.log(translation('AUGUUUUCUUAAAUG'));
+console.log(translation('AUGGUAUUCGAUCCUCCUAGUCCUCCUCUUUUACCCUGGCAUCCGAAUUGCCAC'));
 

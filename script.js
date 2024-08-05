@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = translation(input);
             output.textContent = ` ${result}`
         } catch (error) {
-            output.textContent = 'error'
+            output.textContent = 'error! please check your sequence to be valid.'
         }
 
     })
