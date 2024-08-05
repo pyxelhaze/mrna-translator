@@ -19,3 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 })
+
+// dropdown 
+document.getElementById('sequence-dropdown').addEventListener('change', (event) => {
+    const selectedValue = event.target.value;
+    document.getElementById('output').value = selectedValue;
+});
+
+document.getElementsByClassName('option').addEventListener('click', async () => {
+    const outputField = document.getElementById('output');
+    try {
+        await navigator.clipboard.writeText(outputField.value);
+        alert('Sequence copied to clipboard!');
+    } catch (err) {
+        console.error('Failed to copy: ', err);
+    }
+});

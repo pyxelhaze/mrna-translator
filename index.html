@@ -18,8 +18,34 @@
         id="form"
         class="flex flex-col w-full md:w-full lg:w-3/4 space-y-4"
       >
+        <div>
+          <label for="sequence-dropdown" class="block text-lg font-medium mb-2"
+            >Samplesequence:</label
+          >
+          <select
+            id="sequence-dropdown"
+            class="border border-gray-300 rounded p-2 w-full mb-4"
+          >
+            <option value="" disabled selected>Select a sequence</option>
+            <option
+              class="option"
+              value="AUGAUCUGAGUGACUUUACUUGAGUCUUUGCUGAAAGUUUCAGGUGAAUGCUGGAGGAUGUUUCAUUGUGGUCCUUGUUGCCUUGAUGUUGAUGUGUCCUUGUGUGGUGAAAGGUGCCUUGA"
+            >
+              Insulin mRNA Sequence
+            </option>
+            <option class="option" value="AUGGCUUUGAGCGUUGUUUUGA">
+              Acetylcholin mRNA Sequence
+            </option>
+          </select>
+          <button
+            id="copy-btn"
+            class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+          >
+            Copy Sequence
+          </button>
+        </div>
         <label for="inputText" class="block text-lg font-semibold"
-          >Sequence</label
+          >Sequence:</label
         >
         <input
           id="input"
@@ -35,7 +61,7 @@
         </button>
       </form>
       <div class="flex justify-start py-4 w-full md:w-full lg:w-3/4">
-        <p>Aminoacids:</p>
+        <p class="block text-lg font-semibold">Aminoacids:</p>
       </div>
       <div
         id="output"

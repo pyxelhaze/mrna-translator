@@ -31,8 +31,15 @@ const codonProteinArray = [
 // the template into packs of three
 const splitIntoCodons = (seq) => {
     const codons = [];
-    for (let i = 0; i < seq.length; i += 3) {
-        codons.push(seq.substring(i, i + 3));
+
+    let trim = seq.replace(/\s+/g, '').toUpperCase();
+    const length = trim.length;
+    if (length % 3 != 0) {
+        trim = trim.slice(0, -(length % 3))
+    }
+
+    for (let i = 0; i < trim.length; i += 3) {
+        codons.push(trim.substring(i, i + 3));
     }
     return codons;
 };
@@ -47,10 +54,10 @@ const translateCodonsToProteins = (codons) => {
 
             if (entry.codon.includes(codon)) {
                 found = true;
-                if (entry.protein === 'STOP') {
-                    return proteins;
-                    break;
-                }
+                /*  if (entry.protein === 'STOP') {
+                     return proteins;
+                     break;
+                 } */
                 proteins.push(entry.protein);
             }
         };
@@ -66,11 +73,11 @@ const translateCodonsToProteins = (codons) => {
 export const translation = (seq) => {
     const codons = splitIntoCodons(seq);
     if (codons.length == 0) {
-        return 'there is template to translate'
+        return 'there is no template to translate'
     }
     const proteins = translateCodonsToProteins(codons);
     return proteins.join(', ');
 };
 
-console.log(translation('AUGGUAUUCGAUCCUCCUAGUCCUCCUCUUUUACCCUGGCAUCCGAAUUGCCAC'));
+console.log(translation('AUGAUCUGAGUGACUUUACUUGAGUCUUUGCUGAGGAGGAUGUUUCAUUGUGGUCCUUGUUGCCUUGAUGUUGAUGUGUCCUUGUGUGGUGAAAGGUGCCUUGA'));
 
