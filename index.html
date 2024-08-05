@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>mRNA-Translator</title>
+  </head>
+  <body class="flex justify-center bg-white-100">
+    <div class="flex flex-col items-center p-8 w-full md:w-2/3 lg:w-1/3">
+      <img src="./images/Codon Wheel.png" class="md:w-full lg:w-3/4 pb-12" />
+      <form
+        action=""
+        id="form"
+        class="flex flex-col w-full md:w-full lg:w-3/4 space-y-4"
+      >
+        <label for="inputText" class="block text-lg font-semibold"
+          >Sequence</label
+        >
+        <input
+          id="input"
+          type="text"
+          required
+          class="p-2 border border-gray-300 rounded"
+        />
+        <button
+          type="submit"
+          class="px-4 py-3 bg-blue-500 text-white rounded hover:bg-blue-700"
+        >
+          Show aminoacids
+        </button>
+      </form>
+      <div class="flex justify-start w-full py-2">
+        <p>Translated Proteins:</p>
+      </div>
+      <div
+        id="output"
+        class="border border-gray-300 rounded px-4 py-3 w-full h-3/4"
+      ></div>
+    </div>
+    <script type="module" src="translator.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
