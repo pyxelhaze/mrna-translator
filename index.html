@@ -10,16 +10,16 @@
     />
     <title>mRNA-Translator</title>
   </head>
-  <body class="flex justify-center bg-white-100">
-    <div class="flex flex-col items-center p-8 w-full md:w-2/3 lg:w-1/3">
-      <img src="./images/Codon Wheel.png" class="md:w-full lg:w-3/4 pb-12" />
+  <body class="flex justify-center bg-white-100 p-5">
+    <div class="sm:m-8 flex flex-col items-center w-full md:w-2/3 lg:w-1/2">
+      <img src="./images/Codon Wheel.png" class="md:w-3/4 lg:w-1/2 pb-12" />
       <form
         action=""
         id="form"
-        class="flex flex-col w-full md:w-full lg:w-3/4 space-y-4"
+        class="flex flex-col lg:flex-row p-5 justify-between w-full md:w-full lg:w-full"
       >
-        <div>
-          <label for="sequence-dropdown" class="block text-lg font-medium mb-2"
+        <div class="lg:w-1/3">
+          <label for="sequence-dropdown" class="block text-lg font-medium"
             >Samplesequence:</label
           >
           <select
@@ -37,36 +37,31 @@
               Acetylcholin mRNA Sequence
             </option>
           </select>
-          <button
-            id="copy-btn"
-            class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        </div>
+        <div class="flex flex-col lg:w-1/2">
+          <label for="inputText" class="block text-lg font-semibold"
+            >Sequence:</label
           >
-            Copy Sequence
+          <input
+            id="input"
+            type="text"
+            required
+            class="p-2 mb-3 border border-gray-300 rounded"
+          />
+          <button
+            type="submit"
+            class="px-4 py-3 lg:w-1/2 bg-blue-500 text-white font-normal rounded hover:bg-blue-700 hover:font-extrabold transition duration-200"
+          >
+            Translate
           </button>
         </div>
-        <label for="inputText" class="block text-lg font-semibold"
-          >Sequence:</label
-        >
-        <input
-          id="input"
-          type="text"
-          required
-          class="p-2 border border-gray-300 rounded"
-        />
-        <button
-          type="submit"
-          class="px-4 py-3 bg-blue-500 text-white rounded hover:bg-blue-700"
-        >
-          Translate
-        </button>
       </form>
-      <div class="flex justify-start py-4 w-full md:w-full lg:w-3/4">
-        <p class="block text-lg font-semibold">Aminoacids:</p>
+      <div class="w-full">
+        <div class="flex justify-start p-5 w-full">
+          <p class="block text-lg font-semibold">Aminoacidsequence:</p>
+        </div>
+        <div id="output" class="mx-5 w-full"></div>
       </div>
-      <div
-        id="output"
-        class="border border-gray-300 rounded px-4 py-3 w-full md:w-full lg:w-3/4"
-      ></div>
     </div>
     <script type="module" src="translator.js"></script>
     <script type="module" src="script.js"></script>
